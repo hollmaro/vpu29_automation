@@ -1,1 +1,14 @@
+Test 1
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the username and password and click the login button
+ER: User is logged in and the message “You are logged in!” is displayed
+
 Test 2
+- Open page https://practicetestautomation.com/practice-test-login/
+- Click the login button without filling in the username and password
+ER: The message “The username or password you entered is incorrect” is displayed
+
+Test 3
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the username, but not the password and click the login button
+ER: The message “The username or password you entered is incorrect” is displayed
