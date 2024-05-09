@@ -1,0 +1,12 @@
+Завдання:
+
+В класі login_page.py написати 2 тести (створити нові тестові методи):
+Test 1
+- Open page https://practicetestautomation.com/practice-test-login/
+- Click the login button without filling in the username and password
+ER: The message “The username or password you entered is incorrect” is displayed
+
+Test 2
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the username, but not the password and click the login button
+ER: The message “The username or password you entered is incorrect” is displayed
