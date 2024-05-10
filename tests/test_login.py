@@ -48,17 +48,17 @@ class TestLogin(BaseTest):
         time.sleep(2)  # для цілей демонстрації
         assert "Test login" in text
 
-    def test_empty_credentials_error(self, driver_init):
+    def test_empty_password_error(self, driver_init):
         login_p = LoginPage(driver_init)
-        login_p.open_login_page().clickOnSubmit()
+        login_p.open_login_page().enterUserCred("student").clickOnSubmit()
         error_message = WebDriverWait(driver_init, 10).until(
             expected_conditions.visibility_of_element_located((By.ID, "error"))
         ).text
         assert "The username or password you entered is incorrect" == error_message
 
-    def test_empty_password_error(self, driver_init):
+    def test_empty_credentials_error(self, driver_init):
         login_p = LoginPage(driver_init)
-        login_p.open_login_page().enterUserCred("student").clickOnSubmit()
+        login_p.open_login_page().clickOnSubmit()
         error_message = WebDriverWait(driver_init, 10).until(
             expected_conditions.visibility_of_element_located((By.ID, "error"))
         ).text
