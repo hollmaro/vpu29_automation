@@ -1,5 +1,7 @@
 Завдання:
 
+(Здати завдання у classroom з скріншотами та посиланням на GitHub репозиторій/гілку)
+
 В класі login_page.py написати 2 тести (створити нові тестові методи):
 Test 1
 - Open page https://practicetestautomation.com/practice-test-login/
