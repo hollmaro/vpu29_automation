@@ -1,0 +1,17 @@
+Завдання:
+
+В класі login_page.py написати 2 тести (створити нові тестові методи):
+Test 1
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the username and password fields with CORRECT "Username: student"
+and "Password: Password123"
+- Click on Submit button
+ER: Verify that button "Log out" is displayed
+
+Test 2
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the username with symbols (value that is inside the quotes)
+"!@#$%^&*()-_=+[{]}\|;:',<.>/?`~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGhvbsjhfbvosjhfbvHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_=+[{]}\|;:',<.>/?`~"
+- Fill in the password with correct value "Password123"
+- Don't click on Submit button
+ER: Verify that username field has the same value as in the test and it is not empty
