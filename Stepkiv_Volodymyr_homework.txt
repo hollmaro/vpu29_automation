@@ -13,5 +13,5 @@ Test 2
 - Click on Submit button
 - Click on Logout button
 
-ER: Verify that you are logged out and url contains "https://practicetestautomation.com/logged-in-successfully/"
+ER: Verify that you are logged out and url contains "https://practicetestautomation.com/practice-test-login"
 (use driver.current_url method)
