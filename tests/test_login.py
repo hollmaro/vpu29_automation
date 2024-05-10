@@ -58,7 +58,7 @@ class TestLogin(BaseTest):
 
     def test_empty_password_error(self, driver_init):
         login_p = LoginPage(driver_init)
-        login_p.open_login_page().enterUsername("student").clickOnSubmit()
+        login_p.open_login_page().enterUserCred("student").clickOnSubmit()
         error_message = WebDriverWait(driver_init, 10).until(
             expected_conditions.visibility_of_element_located((By.ID, "error"))
         ).text
