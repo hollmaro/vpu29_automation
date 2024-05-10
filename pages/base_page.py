@@ -20,4 +20,4 @@ class BasePage:
         WebDriverWait(self.driver, 20).until(EC.url_to_be(base_url))
 
     def get_element_text(self, locator):
-        return WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator)).text
+        return WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(locator)).text
