@@ -45,3 +45,29 @@ class TestLogin(BaseTest):
         time.sleep(2)  # для цілей демонстрації
         assert "Test login" in text
 
+    def test_login_no_creds(self, driver_init):
+        (LoginPage(driver_init)
+         .open_login_page()
+         .clickOnSubmit())
+
+        assert LoginPage(driver_init).get_username_invalid_text() == "Your username is invalid!"
+
+    def test_login_only_username(self, driver_init):
+        (LoginPage(driver_init)
+         .open_login_page()
+         .enterUserCred('student', '')
+         .clickOnSubmit())
+
+        assert LoginPage(driver_init).get_username_invalid_text() == "Your password is invalid!"
+
+    def test_check_logged_in_url(self, driver_init):
+        login_p = LoginPage(driver_init)
+        expected_url = "https://practicetestautomation.com/logged-in-successfully/"
+
+        actual_url = (login_p
+            .open_login_page()
+            .enterUserCred('student', 'Password123')
+            .clickOnSubmit()
+            .get_current_url())
+
+        assert expected_url == actual_url

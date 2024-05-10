@@ -21,3 +21,13 @@ class BasePage:
 
     def get_element_text(self, locator):
         return WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(locator)).text
+
+    def is_element_present(self, locator):
+        try:
+            WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(locator))
+            return True
+        except:
+            return False
+
+    def get_current_url(self):
+        return self.driver.current_url

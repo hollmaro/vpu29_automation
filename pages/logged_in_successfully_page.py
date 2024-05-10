@@ -29,3 +29,6 @@ class LoggedInSuccessPage(BasePage):
 
     def click_on_logout_button(self):
         self.click_on_web_element(self.logout_button)
+
+    def get_logged_in_url(self):
+        return self.get_current_url()
