@@ -45,3 +45,21 @@ class TestLogin(BaseTest):
         time.sleep(2)  # для цілей демонстрації
         assert "Test login" in text
 
+    def test_empty_credentials_error(self, driver_init):
+        login_page = LoginPage(driver_init)
+        error_message = (
+            login_page.open_login_page()
+            .clickOnSubmit()
+            .get_username_invalid_text()
+        )
+        assert "Your username is invalid!" in error_message
+
+    def test_empty_password_error(self, driver_init):
+        login_page = LoginPage(driver_init)
+        error_message = (
+            login_page.open_login_page()
+            .enterUserCred("student", "")
+            .clickOnSubmit()
+            .get_password_invalid_text()
+        )
+        assert "Your password is invalid!" in error_message

@@ -14,6 +14,8 @@ class LoggedInSuccessPage(BasePage):
     search_field = (By.XPATH, "//*[@id='search2']")
     title_text = (By.XPATH, "//h1")
     logout_button = (By.XPATH, "//a[text()='Log out']")
+    username_invalid_text = (By.ID, "error")
+    password_invalid_text = (By.ID, "error")
     login_url = "https://practicetestautomation.com/practice-test-login/"
 
     def __init__(self, driver):
@@ -29,3 +31,9 @@ class LoggedInSuccessPage(BasePage):
 
     def click_on_logout_button(self):
         self.click_on_web_element(self.logout_button)
+
+    def get_username_invalid_text(self):
+        return self.get_element_text(self.username_invalid_text)
+
+    def get_password_invalid_text(self):
+        return self.get_element_text(self.password_invalid_text)
