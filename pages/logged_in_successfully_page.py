@@ -1,9 +1,10 @@
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
 
 
-#from pages.login_page import LoginPage
+# from pages.login_page import LoginPage
 
 
 # Class LoggedInSuccessPage inherits from BasePage
@@ -14,6 +15,7 @@ class LoggedInSuccessPage(BasePage):
     search_field = (By.XPATH, "//*[@id='search2']")
     title_text = (By.XPATH, "//h1")
     logout_button = (By.XPATH, "//a[text()='Log out']")
+    is_logout_button_displayed = (By.XPATH, "//a[text()='Log out']")
     login_url = "https://practicetestautomation.com/practice-test-login/"
 
     def __init__(self, driver):
@@ -29,3 +31,13 @@ class LoggedInSuccessPage(BasePage):
 
     def click_on_logout_button(self):
         self.click_on_web_element(self.logout_button)
+
+    def is_element_displayed(self, locator):
+        try:
+            element = self.driver.find_element(*locator)
+            return element.is_displayed()
+        except NoSuchElementException:
+            return False
+
+    def is_logout_button_displayed(self):
+        return self.is_element_displayed(self.logout_button)

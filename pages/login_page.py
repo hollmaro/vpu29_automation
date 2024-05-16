@@ -41,3 +41,6 @@ class LoginPage(BasePage):
 
     def get_title_login_text(self) -> str:
         return self.get_element_text(self.title_text)
+
+    def get_username_field_value(self):
+        return self.get_element_attribute(self.user_name_field, "value")
