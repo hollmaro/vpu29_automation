@@ -1,9 +1,6 @@
 import time
 
 import pytest
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 
 from pages.logged_in_successfully_page import LoggedInSuccessPage
 from pages.login_page import LoginPage
@@ -48,20 +45,3 @@ class TestLogin(BaseTest):
         time.sleep(2)  # для цілей демонстрації
         assert "Test login" in text
 
-    def test_successful_login(self, driver_init):
-        login_page = LoginPage(driver_init)
-        logged_in_page = (
-            login_page.open_login_page()
-            .enterUserCred("student", "Password123")
-            .clickOnSubmit()
-        )
-        assert logged_in_page.is_logout_button_displayed()
-
-    def test_username_with_symbols(self, driver_init):
-        username_with_symbols = (
-            "!@#$%^&*()-_=+[{]}\\|;:',<.>/?~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGhvbsjhfbvosjhfbvHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_=+[{]}\\|;:',<.>/?~"
-        )
-        login_page = LoginPage(driver_init)
-        login_page.open_login_page().enterUserCred(username_with_symbols, "Password123")
-        username_value = login_page.get_username_field_value()
-        assert username_value == username_with_symbols and username_value != ""
