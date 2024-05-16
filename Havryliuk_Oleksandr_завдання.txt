@@ -1,0 +1,15 @@
+Завдання:
+
+- Перейменувати гілку на ПІБ студента
+
+Написати тести у файлі "test_loggedinsuccess.py":
+
+Test 1
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the username and password ('student', 'Password123') and click the submit button
+ER: Verify that url is "https://practicetestautomation.com/logged-in-successfully/"
+
+Test 2
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the username and password ('student', 'Password123') and click the submit button
+ER: Verify that the link to HOME is displayed on top bar after login (you can find this element by XPath "//*[text()='Home']")
