@@ -1,1 +1,7 @@
 Гуль Сергій
+
+Test 1
+- Open page https://practicetestautomation.com/practice-test-login/
+- Enter username and password 'student', 'Password123'
+- Press ENTER key
+ER: User is logged in and message 'You are logged in!' is shown
