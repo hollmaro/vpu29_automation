@@ -1,1 +1,12 @@
 test1
+
+(Здати завдання у classroom з скріншотами та посиланням на GitHub репозиторій/гілку)
+
+- В класі practice_page.py написати метод: click_on_login_page_link  який клікає на лінк "Test Login Page"
+і повертає сторінку обʼєкт LoginPage
+- В класі test_practice.py написати 1 тест (створити нові тестові методи в класі practice_test.py):
+Test 1
+1. Open page https://practicetestautomation.com/practice-test-login/
+ER: Verify that practice page title is "Practice"
+2. Click on "Test Login Page" link
+ER: Verify that login page title is "Test Login Page"
