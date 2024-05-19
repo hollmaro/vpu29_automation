@@ -1,11 +1,10 @@
 from selenium.webdriver.common.by import By
 
-from pages.logged_in_successfully_page import LoggedInSuccessPage
 from pages.base_page import BasePage
 from pages.login_page import LoginPage
 
 
-# Class LoginPage inherits from BasePage
+# Class PracticePage inherits from BasePage
 # and contains locators and methods for the practice page
 # representation of https://practicetestautomation.com/practice/
 
