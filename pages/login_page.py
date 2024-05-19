@@ -41,3 +41,6 @@ class LoginPage(BasePage):
 
     def get_title_login_text(self) -> str:
         return self.get_element_text(self.title_text)
+
+    # Написати Метод для натискання на вкладку BLOG
+    # def click_on_blog_tab(self):
