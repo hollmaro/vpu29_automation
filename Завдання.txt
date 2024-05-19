@@ -1,1 +1,10 @@
-Test 2
+test1
+
+(Здати завдання у classroom з скріншотами та посиланням на GitHub репозиторій/гілку)
+
+
+- В класі test_blog.py написати 1 тест (створити нові тестові методи в класі test_blog.py):
+Test 1
+1. Open page https://practicetestautomation.com/practice-test-login/
+2. Click on tab "BLOG"
+ER: Verify that BLOG page is opened and tab is active

@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+from pages.blog_page import BlogPage
 from pages.logged_in_successfully_page import LoggedInSuccessPage
 from pages.base_page import BasePage
 
@@ -16,6 +17,7 @@ class LoginPage(BasePage):
 
     # локатори елементів сторінки логіну
     search_field = (By.XPATH, "//*[@id='search2']")
+    blog_tab = (By.XPATH, "//*[text()='Blog']")
     user_name_field = (By.ID, "username")
     password_field = (By.ID, "password")
     submit_button = (By.ID, "submit")
@@ -41,3 +43,7 @@ class LoginPage(BasePage):
 
     def get_title_login_text(self) -> str:
         return self.get_element_text(self.title_text)
+
+    def click_on_blog_tab(self):
+        self.click_on_web_element(self.blog_tab)
+        return BlogPage(self.driver)
