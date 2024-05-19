@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 from pages.logged_in_successfully_page import LoggedInSuccessPage
 from pages.base_page import BasePage
+from pages.login_page import LoginPage
 
 
 # Class LoginPage inherits from BasePage
@@ -25,7 +26,7 @@ class PracticePage(BasePage):
     # Метод для переходу на сторінку логіну
     def click_on_login_page_link(self):
         self.click_on_web_element(self.login_page_link)
-        return LoggedInSuccessPage(self.driver)
+        return LoginPage(self.driver)
 
     #Написати Метод для отримання URL сторінки Practice
     #def get_practice_url(self):
