@@ -1,0 +1,15 @@
+test1
+
+(Здати завдання у classroom з скріншотами та посиланням на GitHub репозиторій/гілку)
+
+-
+- В класі test_loggedinsuccess.py написати 1 тест (створити новий тестовий метод в класі test_loggedinsuccess.py):
+Test 1
+1. Open page https://practicetestautomation.com/logged-in-successfully/
+2. Save page title value to a variable (e.x. "actual_title")
+3. Click on "Practice" tab
+4. Click on "Test Login Page" link
+5. Verify that page title is equal to "Log In" (use assert)
+6. Fill in username "student" and password "Password123"
+7. Click on "Submit" button
+ER: Verify that page title is the same as it was before submitting (actual_title from step 2)
