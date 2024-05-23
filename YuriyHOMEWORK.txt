@@ -1,1 +1,13 @@
-git
+test1
+
+(Здати завдання у classroom з скріншотами та посиланням на GitHub репозиторій/гілку)
+
+- В класі login_page.py написати метод: click_on_blog_tab  який клікає на табу "BLOG"
+і повертає сторінку обʼєкт BlogPage
+- В класі test_login.py написати 1 тест (створити нові тестові методи в класі test_login.py):
+Test 1
+1. Open page https://practicetestautomation.com/practice-test-login/
+2. Fill in username "student" and password "Password123"
+3. Click on "Submit" button
+4. Click on "BLOG" tab
+ER: Verify that BLOG page is opened and title is "Headless Browser Testing with Selenium: Elevate Your Expertise"
