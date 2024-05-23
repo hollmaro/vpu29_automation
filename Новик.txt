@@ -1,0 +1,17 @@
+Завдання:
+
+Використовуючи Page Object Model (без використання обʼєкту driver безпосередньо у тестах!!!!)
+Для другого тесту написати клас Practice_page у файлі "practice_page.py" з методом "is_home_link_displayed"
+який повертає True або False в залежності від того чи відображається лінк "Home" на сторінці після логіну.
+Написати тести у файлі "test_loggedinsuccess.py":
+
+Test 1
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the wrong username and password ('student123', 'Password_wrong') and click the submit button
+ER: Verify that url is "https://practicetestautomation.com/practice-test-login/" and page title is "Test login"
+
+Test 2
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the username and password ('student', 'Password123') and click the submit button
+- Click on the tab "Practice"
+ER: Verify that the links "Test Login Page" and "Test Exceptions" are displayed
