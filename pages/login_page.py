@@ -7,6 +7,13 @@ from pages.base_page import BasePage
 # Class LoginPage inherits from BasePage
 # and contains locators and methods for the login page
 # representation of https://practicetestautomation.com/practice-test-login/
+class BlogPage:
+    pass
+
+
+class LoginPage:
+    def click_on_blog_tab(self):
+        return BlogPage()
 
 class LoginPage(BasePage):
     def __init__(self, driver):

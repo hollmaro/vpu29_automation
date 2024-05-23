@@ -1,47 +1,21 @@
-import time
+import unittest
 
-import pytest
-
-from pages.logged_in_successfully_page import LoggedInSuccessPage
 from pages.login_page import LoginPage
-from tests.base_test import BaseTest
 
 
-@pytest.mark.usefixtures("driver_init")
-# TestLogin клас, який успадковує BaseTest клас для виведення назви тесту перед його виконанням
-# Тестовий клас має починатися зі слова Test для того, щоб pytest визначив його як тест
-class TestLogin(BaseTest):
-    # Позитивний тест на вхід в систему
-    # Тестовий метод має починається зі слова test_ для того, щоб pytest визначив його як тест
-    def test_login_positive(self, driver_init):
-        login_p = LoginPage(driver_init)
-        title = (login_p
-                 .open_login_page()
-                 .enterUserCred('student', 'Password123')
-                 .clickOnSubmit()
-                 .get_title_text())
-        time.sleep(2)  # для цілей демонстрації
-        assert "Logged In Successfully" in title
+class TestLogin(unittest.TestCase):
+    def test_blog_page_title(self):
+        # Your setup code (opening the page, filling in credentials) might go here
 
-    # def test_login_negative_username(self, driver_init):
-    #     login_p = LoginPage(driver_init)
-    #     (login_p
-    #      .open_login_page()
-    #      .enterUserCred('student123', 'Password123')
-    #      .clickOnSubmit())
-    #     error_message = login_p.get_username_invalid_text()
-    #     time.sleep(2)  # для цілей демонстрації
-    #     assert "Your username is invalid!" in error_message
+        # Step 4: Click on "BLOG" tab
+        login_page = LoginPage()
+        blog_page = login_page.click_on_blog_tab()
 
-    def test_logout_positive(self, driver_init):
-        login_p = LoginPage(driver_init)
-        # loggedin = LoggedInSuccessPage(driver_init)
-        (login_p
-         .open_login_page()
-         .enterUserCred('student', 'Password123')
-         .clickOnSubmit()
-         .click_on_logout_button())
-        text = login_p.get_title_login_text()
-        time.sleep(2)  # для цілей демонстрації
-        assert "Test login" in text
+        # Verification
+        expected_title = "Headless Browser Testing with Selenium: Elevate Your Expertise"
+        actual_title = blog_page.get_title()
+        self.assertEqual(actual_title, expected_title, "Title doesn't match")
 
+
+if __name__ == "__main__":
+    unittest.main()
