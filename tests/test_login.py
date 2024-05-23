@@ -1,18 +1,11 @@
-import time
-
 import pytest
-
-from pages.logged_in_successfully_page import LoggedInSuccessPage
+from selenium import webdriver
 from pages.login_page import LoginPage
 from tests.base_test import BaseTest
 
-
 @pytest.mark.usefixtures("driver_init")
-# TestLogin клас, який успадковує BaseTest клас для виведення назви тесту перед його виконанням
-# Тестовий клас має починатися зі слова Test для того, щоб pytest визначив його як тест
 class TestLogin(BaseTest):
-    # Позитивний тест на вхід в систему
-    # Тестовий метод має починається зі слова test_ для того, щоб pytest визначив його як тест
+
     def test_login_positive(self, driver_init):
         login_p = LoginPage(driver_init)
         title = (login_p
@@ -20,28 +13,29 @@ class TestLogin(BaseTest):
                  .enterUserCred('student', 'Password123')
                  .clickOnSubmit()
                  .get_title_text())
-        time.sleep(2)  # для цілей демонстрації
         assert "Logged In Successfully" in title
-
-    # def test_login_negative_username(self, driver_init):
-    #     login_p = LoginPage(driver_init)
-    #     (login_p
-    #      .open_login_page()
-    #      .enterUserCred('student123', 'Password123')
-    #      .clickOnSubmit())
-    #     error_message = login_p.get_username_invalid_text()
-    #     time.sleep(2)  # для цілей демонстрації
-    #     assert "Your username is invalid!" in error_message
 
     def test_logout_positive(self, driver_init):
         login_p = LoginPage(driver_init)
-        # loggedin = LoggedInSuccessPage(driver_init)
         (login_p
          .open_login_page()
-         .enterUserCred('student', 'Password123')
+         .enterUserCred('student', 'Password123')  \
          .clickOnSubmit()
          .click_on_logout_button())
         text = login_p.get_title_login_text()
-        time.sleep(2)  # для цілей демонстрації
         assert "Test login" in text
 
+    def test_login_scenario(self, driver_init):
+        # Open login page
+        login_page = LoginPage(driver_init)
+        login_page.open_login_page()
+
+        # Enter username and password
+        login_page.enterUserCred('student', 'Password123')
+
+        # Submit the form
+        logged_in_page = login_page.clickOnSubmit()
+
+        # Verify successful login message
+        success_message = logged_in_page.get_title_text()
+        assert "Logged In Successfully" in success_message  # виправлено очікуване значення

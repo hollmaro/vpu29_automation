@@ -1,10 +1,9 @@
 import pytest
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from selenium.webdriver.common.by import By
 
 class BasePage:
-
     def __init__(self, driver):
         self.driver = driver
 
@@ -16,7 +15,6 @@ class BasePage:
 
     def open_page(self, base_url):
         self.driver.get(base_url)
-        # Очікування відображення сторінки
         WebDriverWait(self.driver, 20).until(EC.url_to_be(base_url))
 
     def get_element_text(self, locator):

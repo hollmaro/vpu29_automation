@@ -1,17 +1,9 @@
 from selenium.webdriver.common.by import By
-
-from pages.logged_in_successfully_page import LoggedInSuccessPage
 from pages.base_page import BasePage
-
-
-# Class LoginPage inherits from BasePage
-# and contains locators and methods for the login page
-# representation of https://practicetestautomation.com/practice-test-login/
+from pages.logged_in_successfully_page import LoggedInSuccessPage
 
 class LoginPage(BasePage):
     def __init__(self, driver):
-        # Викликаємо конструктор базового класу BasePage через super() і передаємо йому драйвер
-        # (об'єкт WebDriver який потім буде використовуватися в методах класу)
         super().__init__(driver)
 
     # локатори елементів сторінки логіну
