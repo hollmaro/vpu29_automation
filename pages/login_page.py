@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+from pages.blog_page import BlogPage
 from pages.logged_in_successfully_page import LoggedInSuccessPage
 from pages.base_page import BasePage
 
@@ -21,6 +22,7 @@ class LoginPage(BasePage):
     submit_button = (By.ID, "submit")
     username_invalid_text = (By.ID, "error")
     title_text = (By.XPATH, "//h2")
+    blog_tab = (By.XPATH, "//a[contains(text(),'Blog')]")
     login_url = "https://practicetestautomation.com/practice-test-login/"
 
     def enterUserCred(self, username, password):
@@ -41,3 +43,8 @@ class LoginPage(BasePage):
 
     def get_title_login_text(self) -> str:
         return self.get_element_text(self.title_text)
+
+    # Написати Метод для натискання на вкладку BLOG
+    def click_on_blog_tab(self):
+        self.click_on_web_element(self.blog_tab)
+        return BlogPage(self.driver)
