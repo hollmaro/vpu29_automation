@@ -11,3 +11,11 @@ Test 1
 3. Click on "Submit" button
 4. Click on "BLOG" tab
 ER: Verify that BLOG page is opened and title is "Headless Browser Testing with Selenium: Elevate Your Expertise"
+
+Test 2
+1. Open page https://practicetestautomation.com/practice-test-login/
+2. Fill in username "student" and password "Password123"
+3. Click on "Submit" button
+4. Click on "Logout" button
+5. Click on "Courses" tab
+ER: Verify that COURSES page is opened and title is "Courses"
