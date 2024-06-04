@@ -1,0 +1,13 @@
+test1
+
+(Здати завдання у classroom з скріншотами та посиланням на GitHub репозиторій/гілку)
+
+- В класі login_page.py написати метод: click_on_courses_tab  який клікає на табу "Courses"
+і повертає сторінку обʼєкт CoursesPage
+- В класі test_login.py написати 1 тест (створити нові тестові методи в класі test_login.py):
+Test 1
+1. Open page https://practicetestautomation.com/practice-test-login/
+2. Fill in username "student" and password "Password123"
+3. Click on "Submit" button
+4. Click on "Courses" tab
+ER: Verify that Courses page is opened and title is "Courses"
