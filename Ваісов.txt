@@ -1,0 +1,23 @@
+Завдання:
+
+Використовуючи Page Object Model (без використання обʼєкту driver безпосередньо у тестах!!!!)
+Для другого тесту написати клас Practice_page у файлі "practice_page.py" з методами "click_login_page_link"
+та "click_test_exceptions_link", кожний з них
+ повертає об'єкт класу LoginPage і TestExceptionsPage відповідно (створити клас TestExceptionsPage у файлі "test_exceptions_page.py").
+
+Написати тести у файлі "test_loggedinsuccess.py":
+
+Test 1
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the username and password ('student', 'Password123') and click the submit button
+- Click on the tab "Practice"
+- Click on link "Test login page"
+ER: Verify that the page "Test Login Page" is opened
+
+Test 2
+- Open page https://practicetestautomation.com/practice-test-login/
+- Fill in the username and password ('student', 'Password123') and click the submit button
+- Click on the tab "Practice"
+- Click on link "Test exceptions"
+ER: Verify that the page "Test Exceptions" is opened
+"""
