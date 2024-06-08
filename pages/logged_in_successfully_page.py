@@ -15,6 +15,7 @@ class LoggedInSuccessPage(BasePage):
     title_text = (By.XPATH, "//h1")
     logout_button = (By.XPATH, "//a[text()='Log out']")
     login_url = "https://practicetestautomation.com/practice-test-login/"
+    logged_in_url = "https://practicetestautomation.com/logged-in-successfully/"
 
     def __init__(self, driver):
         # Initialize the LoginPage instance with a WebDriver object and locators.
@@ -24,7 +25,7 @@ class LoggedInSuccessPage(BasePage):
         return self.get_element_text(self.title_text)
 
     def open_logged_in_success_page(self):
-        self.open_page(self.login_url)
+        self.open_page(self.logged_in_url)
         return self
 
     def click_on_logout_button(self):
