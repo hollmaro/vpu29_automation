@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from pages.login_page import LoginPage
 from pages.test_exceptions_page import TestExceptionsPage
-
+#f
 class PracticePage:
     def __init__(self, driver):
         self.driver = driver

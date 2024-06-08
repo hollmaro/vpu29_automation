@@ -4,3 +4,4 @@ class TestExceptionsPage:
 
     def is_displayed(self):
         return "Test Exceptions" in self.driver.title
+#f
