@@ -1,13 +1,33 @@
 import pytest
-
-from pages.logged_in_successfully_page import LoggedInSuccessPage
+from pages.login_page import LoginPage
+from pages.practice_page import PracticePage
 
 
 @pytest.mark.usefixtures("driver_init")
-class TestLoggedInSuccessPage:
+class TestLoggedInSuccess:
 
-    def test_logged_success_title(self, driver_init):
-        logged = LoggedInSuccessPage(driver_init)
-        logged.open_logged_in_success_page()
-        assert "Logged in successfully" in logged.get_title_text()
-        #login_p.open_login_page().enterUserCred('student', 'Password123').clickOnSubmit()
+    def test_login_and_navigate_to_login_page(self):
+        self.driver.get("https://practicetestautomation.com/practice-test-login/")
+
+        login_page = LoginPage(self.driver)
+        login_page.enter_username("student")
+        login_page.enter_password("Password123")
+        login_page.click_submit()
+
+        practice_page = PracticePage(self.driver)
+        login_page = practice_page.click_login_page_link()
+
+        assert "Test Login Page" in self.driver.title
+
+    def test_login_and_navigate_to_exceptions_page(self):
+        self.driver.get("https://practicetestautomation.com/practice-test-login/")
+
+        login_page = LoginPage(self.driver)
+        login_page.enter_username("student")
+        login_page.enter_password("Password123")
+        login_page.click_submit()
+
+        practice_page = PracticePage(self.driver)
+        test_exceptions_page = practice_page.click_test_exceptions_link()
+
+        assert test_exceptions_page.is_displayed()
