@@ -12,7 +12,7 @@ from tests.base_test import BaseTest
 # Тестовий клас має починатися зі слова Test для того, щоб pytest визначив його як тест
 class TestLogin(BaseTest):
     # Позитивний тест на вхід в систему
-    # Тестовий метод має починається зі слова test_ для того, щоб pytest визначив його як тест
+    # Тестовий метод має починаєтьс зі слова test_ для того, щоб pytest визначив його як тест
     def test_login_positive(self, driver_init):
         login_p = LoginPage(driver_init)
         title = (login_p

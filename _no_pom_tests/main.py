@@ -14,7 +14,7 @@ driver.get("https://www.google.com")
 gmail_link = driver.find_element(By.XPATH, "//a[text()='Gmail']")
 gmail_link.click()
 
-time.sleep(10)
+time.sleep(15)
 
 driver.quit()
 
