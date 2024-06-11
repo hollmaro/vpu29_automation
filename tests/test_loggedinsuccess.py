@@ -1,13 +1,33 @@
 import pytest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from pages.login_page import LoginPage, PracticePage
 
-from pages.logged_in_successfully_page import LoggedInSuccessPage
+
+@pytest.fixture(scope="function")
+def driver():
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    yield driver
+    driver.quit()
 
 
-@pytest.mark.usefixtures("driver_init")
-class TestLoggedInSuccessPage:
+def test_login_failure(driver):
+    login_page = LoginPage(driver)
+    login_page.load()
+    login_page.login('student123', 'Password_wrong')
 
-    def test_logged_success_title(self, driver_init):
-        logged = LoggedInSuccessPage(driver_init)
-        logged.open_logged_in_success_page()
-        assert "Logged in successfully" in logged.get_title_text()
-        #login_p.open_login_page().enterUserCred('student', 'Password123').clickOnSubmit()
+    assert driver.current_url == "https://practicetestautomation.com/practice-test-login/"
+    assert driver.title == "Test login"
+
+
+def test_login_success_and_practice_links(driver):
+    login_page = LoginPage(driver)
+    login_page.load()
+    login_page.login('student', 'Password123')
+
+    practice_page = PracticePage(driver)
+    driver.find_element(By.LINK_TEXT, 'Practice').click()
+
+    assert practice_page.are_links_displayed()

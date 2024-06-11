@@ -1,43 +1,36 @@
 from selenium.webdriver.common.by import By
-
-from pages.logged_in_successfully_page import LoggedInSuccessPage
-from pages.base_page import BasePage
+from selenium.webdriver.remote.webdriver import WebDriver
 
 
-# Class LoginPage inherits from BasePage
-# and contains locators and methods for the login page
-# representation of https://practicetestautomation.com/practice-test-login/
+class LoginPage:
+    URL = "https://practicetestautomation.com/practice-test-login/"
+    USERNAME_INPUT = (By.ID, 'username')
+    PASSWORD_INPUT = (By.ID, 'password')
+    SUBMIT_BUTTON = (By.ID, 'submit')
 
-class LoginPage(BasePage):
-    def __init__(self, driver):
-        # Викликаємо конструктор базового класу BasePage через super() і передаємо йому драйвер
-        # (об'єкт WebDriver який потім буде використовуватися в методах класу)
-        super().__init__(driver)
+    def __init__(self, driver: WebDriver):
+        self.driver = driver
 
-    # локатори елементів сторінки логіну
-    search_field = (By.XPATH, "//*[@id='search2']")
-    user_name_field = (By.ID, "username")
-    password_field = (By.ID, "password")
-    submit_button = (By.ID, "submit")
-    username_invalid_text = (By.ID, "error")
-    title_text = (By.XPATH, "//h2")
-    login_url = "https://practicetestautomation.com/practice-test-login/"
+    def load(self):
+        self.driver.get(self.URL)
 
-    def enterUserCred(self, username, password):
-        self.enter_text(self.user_name_field, username)
-        self.enter_text(self.password_field, password)
-        return self
+    def login(self, username: str, password: str):
+        self.driver.find_element(*self.USERNAME_INPUT).send_keys(username)
+        self.driver.find_element(*self.PASSWORD_INPUT).send_keys(password)
+        self.driver.find_element(*self.SUBMIT_BUTTON).click()
 
-    def open_login_page(self):
-        self.open_page(self.login_url)
-        return self
 
-    def clickOnSubmit(self):
-        self.click_on_web_element(self.submit_button)
-        return LoggedInSuccessPage(self.driver)
+class PracticePage:
+    HOME_LINK = (By.LINK_TEXT, 'Home')
+    TEST_LOGIN_PAGE_LINK = (By.LINK_TEXT, 'Test Login Page')
+    TEST_EXCEPTIONS_LINK = (By.LINK_TEXT, 'Test Exceptions')
 
-    def get_username_invalid_text(self):
-        return self.get_element_text(self.username_invalid_text)
+    def __init__(self, driver: WebDriver):
+        self.driver = driver
 
-    def get_title_login_text(self) -> str:
-        return self.get_element_text(self.title_text)
+    def is_home_link_displayed(self) -> bool:
+        return self.driver.find_element(*self.HOME_LINK).is_displayed()
+
+    def are_links_displayed(self) -> bool:
+        return self.driver.find_element(*self.TEST_LOGIN_PAGE_LINK).is_displayed() and \
+               self.driver.find_element(*self.TEST_EXCEPTIONS_LINK).is_displayed()
